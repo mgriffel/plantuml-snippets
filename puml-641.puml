@@ -1,0 +1,29 @@
+@startuml
+title HCCOM Component Dependencies
+
+[Pairing] -down-> [Manager]
+[Bluetooth] -down-> [Manager]
+[Service-BE] -down-> [Manager]
+[Service-NI] -down-> [Manager]
+[Service-CU] -down-> [Manager]
+[Service-RO] -down-> [Manager]
+[Service-FU] -down-> [Manager]
+[Service-FU] -> [Service-RO]
+[Gateway-CDS] -down-> [Manager]
+[Gateway-APP] -down-> [Manager]
+[Gateway-APP] -down-> [Service-RO]
+[Gateway-APP] -down-> [Service-NI]
+[Gateway-APP] -down-> [Service-BE]
+[Gateway-FDS] -down-> [Manager]
+[Gateway-FDS] -down-> [Service-FU]
+[Gateway-HCA] -down-> [Manager]
+[Gateway-HCA] -down-> [Service-RO]
+[Gateway-HCA] -down-> [Service-NI]
+[Gateway-HCA] -down-> [Service-BE]
+[Gateway-HCA] -down-> [Service-FU]
+[Gateway-HCA] -down-> [Service-CU]
+
+[Manager] -down-> [connman]
+[Manager] -down-> [systeminfo]
+
+@enduml
